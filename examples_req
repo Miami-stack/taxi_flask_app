@@ -1,0 +1,11 @@
+curl -X POST -H "Content-Type: application/json"  -d '{"name": "AlexandraFedor", "is_vip": false}' http://127.0.0.1:5050/clients
+
+
+curl -X POST -H "Content-Type: application/json"  -d '{"name": "Alexandra", "is_vip": true}' http://127.0.0.1:5050/clients
+
+curl -X GET http://127.0.0.1:5050/clients?clientId=2
+
+
+curl -i -X POST  -H "Content-Type: application/json"  -d '{"address_from": "Lenina", "address_to": "Pushkina", "client_id": 2, "driver_id": 1, "date_created":"07/28/2014 18:54:55.099000", "status": "Not accepted"}' http://127.0.0.1:5050/orders
+
+curl -i -X PUT  -H "Content-Type: application/json"  -d '{"status": "done"}' http://127.0.0.1:5050/orders/5
