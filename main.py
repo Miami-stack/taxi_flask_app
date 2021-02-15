@@ -136,4 +136,4 @@ def put_order(order_id: int) -> Tuple[str, int]:
     assert False
 
 
-app.run(host="127.0.0.1", port=5050, debug=True)
+app.run(host="0.0.0.0", port=5050, debug=True)
