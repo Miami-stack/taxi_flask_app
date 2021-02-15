@@ -1,12 +1,18 @@
 """Модель базы данных."""
 from datetime import datetime
 from typing import Any
+import os
 
 from sqlalchemy import Column, Integer, String, create_engine, Boolean, ForeignKey, DateTime
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-engine = create_engine('postgresql://postgres@localhost:5432/postgres')
+DB_NAME = os.environ.get('DB_NAME', 'postgres')
+DB_HOST = os.environ.get('DB_HOST', '0.0.0.0')
+DB_USER = os.environ.get('DB_USER', 'postgres')
+DB_PORT = os.environ.get('DB_USER', '5432')
+
+engine = create_engine(f'postgresql://{DB_NAME}@{DB_HOST}:{DB_PORT}/{DB_USER}')
 Base: Any = declarative_base()
 Session = sessionmaker(bind=engine)
 
